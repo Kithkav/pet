@@ -19,8 +19,8 @@ public class Activity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private FloatingActionButton mFab;
     private FirebaseFirestore firestore;
-    private ToDoAdapter adapter;
-    private List<ToDoModel> mList;
+//    private ToDoAdapter adapter;
+//    private List<ToDoModel> mList;
     private Query query;
     private ListenerRegistration listenerRegistration;
 

@@ -19,10 +19,7 @@
             android:name=".Activity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".VaccinationShedule"
+            android:name=".TodoActivity"
             android:exported="false" />
         <activity
             android:name=".ProfileActivity"

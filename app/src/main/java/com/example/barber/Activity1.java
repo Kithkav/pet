@@ -10,7 +10,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.widget.Toast;
 import android.widget.Toolbar;
 
 //import com.example.barber.Appointment;
@@ -68,7 +67,7 @@ public class Activity1 extends AppCompatActivity {
                         Log.i("MENU_DRAWER_TAG", "Reminder item is clicked");
                         drawerLayout.closeDrawer(GravityCompat.START);
 
-                        Intent intent1=new Intent(Activity1.this, MainActivity.class);
+                        Intent intent1=new Intent(Activity1.this, TodoActivity.class);
                         startActivity(intent1);
                         break;
 
