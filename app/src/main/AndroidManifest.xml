@@ -16,7 +16,7 @@
         android:theme="@style/Theme.Barber"
         tools:targetApi="31">
         <activity
-            android:name=".Activity"
+            android:name=".TodoViewActivity"
             android:exported="false" />
         <activity
             android:name=".TodoActivity"

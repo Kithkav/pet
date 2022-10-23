@@ -1,13 +1,10 @@
 package com.example.barber;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 class User {
     private String name;
     private String mobile;
-    private ArrayList<Task> tasks = new ArrayList<>();
-    private ArrayList<AppointmentActivity> appointments = new ArrayList<>();
     private Pet pet = new Pet();
 
     public User(String name, String mobileNumber) {
@@ -23,25 +20,28 @@ class User {
         return this.mobile;
     }
 
-    public ArrayList<Task> getTasks() {
-        return this.tasks;
-    }
-
-    public ArrayList<AppointmentActivity> getAppointments() {
-        return this.appointments;
-    }
-
     public Pet getPet() {
         return this.pet;
     }
 }
 
-class Task {
+class ToDoTask {
     private String description;
-    private boolean done = false;
+    private boolean done;
+    private Date date;
 
-    public Task(String description) {
+    public ToDoTask() {
+
+    }
+
+    public ToDoTask(String description, Date date) {
+        this.date = date;
         this.description = description;
+        this.done = false;
+    }
+
+    public Date getDate() {
+        return this.date;
     }
 
     public String getDescription() {
@@ -55,12 +55,17 @@ class Task {
 
 class Appointment {
     private String description;
-    private boolean done = false;
+    private boolean done;
     private Date date;
+
+    public Appointment() {
+
+    }
 
     public Appointment(String description, Date date) {
         this.date = date;
         this.description = description;
+        this.done = false;
     }
 
     public Date getDate() {

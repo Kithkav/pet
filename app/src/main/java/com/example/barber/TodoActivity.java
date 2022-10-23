@@ -21,7 +21,7 @@ public class TodoActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(TodoActivity.this , Activity.class));
+                startActivity(new Intent(TodoActivity.this , TodoViewActivity.class));
                 finish();
             }
         } , 4000);
