@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">petCare</string>
+    <string name="menu_Open">Open</string>
+    <string name="close_menu">Close</string>
+
+    <string name="welcome_to_petcare_app">Welcome to petCare App</string>
+
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string-array name="timeframes">
+        <item>Select time you are available</item>
+        <item>8.00-11.00 am</item>
+        <item>2.00-5.00 pm</item>
+        <item>7.00-9.00 pm</item>
+    </string-array>
+
+    <string-array name="days">
+        <item>Select days you are available</item>
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+    </string-array>
+
+    <string-array name="doctor">
+        <item>Select doctor</item>
+        <item>Dr.Saman Perera</item>
+    </string-array>
+</resources>

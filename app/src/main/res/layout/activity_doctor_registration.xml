@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fece2f"
+    tools:context=".DoctorRegistration">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/signup_back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:src="@drawable/ic_back"
+            android:transitionName="transition_back_arrow_btn" />
+
+        <TextView
+            android:id="@+id/title"
+            android:text="Doctor Registration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="#000"/>
+
+
+
+
+
+        <EditText
+            android:id="@+id/registrationFullName"
+            android:hint="Enter your full name"
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="#000"/>
+
+
+        <EditText
+            android:id="@+id/gender"
+            android:hint="Enter your gender"
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="#000"/>
+
+
+
+
+        <EditText
+            android:id="@+id/emailAddress"
+            android:hint="Enter your Email address"
+            android:inputType="textEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="#000"/>
+
+        <EditText
+            android:id="@+id/color"
+            android:hint="Enter your Password"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="#000"/>
+
+        <EditText
+            android:id="@+id/age"
+            android:hint="Enter your NIC number"
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="#000"/>
+
+        <Spinner
+            android:id="@+id/availability"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:popupBackground="#fff"
+            android:entries="@array/timeframes"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center">
+
+        </Spinner>
+
+        <Spinner
+            android:id="@+id/availabilityDays"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:popupBackground="#fff"
+            android:entries="@array/days"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center">
+
+        </Spinner>
+
+        <Button
+            android:id="@+id/registerbtn"
+            android:text="Click here to Register"
+            android:textAllCaps="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:textColor="#fff"/>
+
+        <TextView
+            android:id="@+id/regPageQuestion"
+            android:text="Already have an account? Login"
+            android:textAllCaps="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:textColor="#000"
+            android:gravity="center"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
+
+</LinearLayout>
