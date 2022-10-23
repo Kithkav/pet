@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class Appointment extends AppCompatActivity {
+public class AppointmentActivity extends AppCompatActivity {
     Button selectDate;
 
     @Override

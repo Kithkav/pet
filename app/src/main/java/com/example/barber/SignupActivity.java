@@ -20,13 +20,9 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.HashMap;
-import java.util.Map;
-
-public class Signup extends AppCompatActivity {
+public class SignupActivity extends AppCompatActivity {
         TextView txtSignIn;
         EditText edtFullName, edtEmail, edtMobile, edtPassword, edtConfirmPassword;
         ProgressBar progressBar;
@@ -39,7 +35,7 @@ public class Signup extends AppCompatActivity {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.signup);
+            setContentView(R.layout.activity_signup);
 
             txtSignIn = findViewById(R.id.txtSignIn);
             edtFullName = findViewById(R.id.edtSignUpFullName);
@@ -58,7 +54,7 @@ public class Signup extends AppCompatActivity {
             txtSignIn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(Signup.this, Login.class);
+                    Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
                     startActivity(intent);
                     finish();
                 }
@@ -118,33 +114,18 @@ public class Signup extends AppCompatActivity {
             mAuth.createUserWithEmailAndPassword(txtEmail, txtPassword).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                 @Override
                 public void onSuccess(AuthResult authResult) {
-                    Map<String, Object> user = new HashMap<>();
-                    user.put("FullName", txtFullName);
-                    user.put("Email", txtEmail);
-                    user.put("MobileNumber", txtMobile);
+                    //Create a new user entry in firestore
+                    User newUser = new User(txtFullName, txtMobile);
+                    db.collection("users").document(mAuth.getCurrentUser().getEmail()).set(newUser);
 
-                    db.collection("users")
-                            .add(user)
-                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                                @Override
-                                public void onSuccess(DocumentReference documentReference) {
-                                    Toast.makeText(Signup.this, "Data Stored Successfully !", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(Signup.this, Activity1.class);
-                                    startActivity(intent);
-                                    finish();
-                                }
-                            })
-                            .addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Toast.makeText(Signup.this, "Error - " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                                }
-                            });
+                    //Redirect user to main activity
+                    Intent intent = new Intent(SignupActivity.this, MainActivity.class);
+                    startActivity(intent);
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(Signup.this, "Error " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignupActivity.this, "Error " + e.getMessage(), Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(View.INVISIBLE);
                     btnSignUp.setVisibility(View.VISIBLE);
                 }
