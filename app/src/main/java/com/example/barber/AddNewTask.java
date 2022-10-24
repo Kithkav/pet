@@ -29,6 +29,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
+import java.text.ParseException;
 
 public class AddNewTask extends BottomSheetDialogFragment {
 
@@ -134,8 +135,14 @@ public class AddNewTask extends BottomSheetDialogFragment {
 
                 String task = mTaskEdit.getText().toString();
 
+                ToDoTask task1 = new ToDoTask("This is task1", "2022-10-10");
+
+                task1.getDate();
+                task1.getDescription();
+                task1.isDone();
+
                 if (finalIsUpdate){
-                    firestore.collection("task").document(id).update("task" , task , "due" , dueDate);
+                    firestore.collection("task").document(id).update("task" , task1 , "due" , dueDate);
                     Toast.makeText(context, "Task Updated", Toast.LENGTH_SHORT).show();
 
                 }
