@@ -41,13 +41,7 @@ public class TodoViewActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycerlview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(TodoViewActivity.this));
-
-        db.collection("users").document(mAuth.getCurrentUser().getEmail()).collection("toDoTasks").get()
-            .addOnSuccessListener(querySnapshot -> {
-                TodoViewAdapter adapter = new TodoViewAdapter(querySnapshot.getDocuments());
-                recyclerView.setAdapter(adapter);
-            });
-
+        this.refreshRecyclerView();
 
         mFab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +49,14 @@ public class TodoViewActivity extends AppCompatActivity {
                 AddNewTask.newInstance().show(getSupportFragmentManager() , AddNewTask.TAG);
             }
         });
+    }
+
+    public void refreshRecyclerView() {
+        db.collection("users").document(mAuth.getCurrentUser().getEmail()).collection("toDoTasks").get()
+            .addOnSuccessListener(querySnapshot -> {
+                TodoViewAdapter adapter = new TodoViewAdapter(querySnapshot.getDocuments());
+                recyclerView.setAdapter(adapter);
+            });
     }
 }
 
