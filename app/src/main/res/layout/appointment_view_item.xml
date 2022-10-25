@@ -6,25 +6,33 @@
     android:gravity="center_vertical">
 
     <TextView
-        android:id="@+id/txtDescription_todo"
+        android:id="@+id/txtDescription_appointment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
-        android:layout_marginBottom="24dp"
         android:text="Description"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txtDone_todo"
+        android:id="@+id/txtDate_appointment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="1970.01.01"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/txtDescription_appointment"
+        app:layout_constraintTop_toBottomOf="@+id/txtDescription_appointment" />
+
+    <TextView
+        android:id="@+id/txtDone_appointment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:text="Pending"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/txtDescription_todo" />
+        app:layout_constraintTop_toTopOf="@+id/txtDescription_appointment" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

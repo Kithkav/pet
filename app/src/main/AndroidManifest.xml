@@ -16,7 +16,7 @@
         android:theme="@style/Theme.Barber"
         tools:targetApi="31">
         <activity
-            android:name=".ToDoTaskViewActivity"
+            android:name=".TodoTaskViewActivity"
             android:exported="false" />
         <activity
             android:name=".ToDoTaskSplashActivity"

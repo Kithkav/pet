@@ -12,7 +12,7 @@ public class ToDoTaskSplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_todo);
+        setContentView(R.layout.activity_todo_splash);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
@@ -21,7 +21,7 @@ public class ToDoTaskSplashActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(ToDoTaskSplashActivity.this, ToDoTaskViewActivity.class));
+                startActivity(new Intent(ToDoTaskSplashActivity.this, TodoTaskViewActivity.class));
                 finish();
             }
         }, 4000);

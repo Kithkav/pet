@@ -35,13 +35,13 @@ public class AppointmentViewActivity extends AppCompatActivity {
         mFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new AddNewTaskDialogFragment().show(getSupportFragmentManager(), AddNewTaskDialogFragment.TAG);
+                new AddNewAppointmentDialogFragment().show(getSupportFragmentManager(), "PET");
             }
         });
     }
 
-    public void addTaskToDatabase(Task task) {
-        db.collection("users").document(mAuth.getCurrentUser().getEmail()).collection("appointments").add(task);
+    public void addAppointmentToDatabase(Appointment appointment) {
+        db.collection("users").document(mAuth.getCurrentUser().getEmail()).collection("appointments").add(appointment);
         Toast.makeText(AppointmentViewActivity.this, "Appointment added successfully", Toast.LENGTH_SHORT).show();
         this.refreshRecyclerView();
     }
@@ -49,7 +49,7 @@ public class AppointmentViewActivity extends AppCompatActivity {
     private void refreshRecyclerView() {
         db.collection("users").document(mAuth.getCurrentUser().getEmail()).collection("appointments").get()
             .addOnSuccessListener(querySnapshot -> {
-                TaskViewAdapter adapter = new TaskViewAdapter(querySnapshot.getDocuments());
+                AppointmentViewAdapter adapter = new AppointmentViewAdapter(querySnapshot.getDocuments());
                 recyclerView.setAdapter(adapter);
             });
     }

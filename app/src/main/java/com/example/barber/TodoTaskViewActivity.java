@@ -12,7 +12,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class ToDoTaskViewActivity extends AppCompatActivity {
+public class TodoTaskViewActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private FloatingActionButton mFab;
     private FirebaseFirestore db;
@@ -29,27 +29,27 @@ public class ToDoTaskViewActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerView_todo);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(ToDoTaskViewActivity.this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(TodoTaskViewActivity.this));
         this.refreshRecyclerView();
 
         mFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new AddNewTaskDialogFragment().show(getSupportFragmentManager(), AddNewTaskDialogFragment.TAG);
+                new AddNewTodoDialogFragment().show(getSupportFragmentManager(), "PET");
             }
         });
     }
 
-    public void addTaskToDatabase(Task task) {
-        db.collection("users").document(mAuth.getCurrentUser().getEmail()).collection("toDoTasks").add(task);
-        Toast.makeText(ToDoTaskViewActivity.this, "Todo task added successfully", Toast.LENGTH_SHORT).show();
+    public void addTodoTaskToDatabase(TodoTask toDoTask) {
+        db.collection("users").document(mAuth.getCurrentUser().getEmail()).collection("toDoTasks").add(toDoTask);
+        Toast.makeText(TodoTaskViewActivity.this, "Todo toDoTask added successfully", Toast.LENGTH_SHORT).show();
         this.refreshRecyclerView();
     }
 
     private void refreshRecyclerView() {
         db.collection("users").document(mAuth.getCurrentUser().getEmail()).collection("toDoTasks").get()
             .addOnSuccessListener(querySnapshot -> {
-                TaskViewAdapter adapter = new TaskViewAdapter(querySnapshot.getDocuments());
+                TodoTaskViewAdapter adapter = new TodoTaskViewAdapter(querySnapshot.getDocuments());
                 recyclerView.setAdapter(adapter);
             });
     }

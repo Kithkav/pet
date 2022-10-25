@@ -25,16 +25,38 @@ class User {
     }
 }
 
-class Task {
+class TodoTask {
+    private String description;
+    private boolean done;
+
+    public TodoTask() {
+
+    }
+
+    public TodoTask(String description) {
+        this.description = description;
+        this.done = false;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public boolean isDone() {
+        return done;
+    }
+}
+
+class Appointment {
     private String description;
     private boolean done;
     private Date date;
 
-    public Task() {
+    public Appointment() {
 
     }
 
-    public Task(String description, Date date) {
+    public Appointment(String description, Date date) {
         this.date = date;
         this.description = description;
         this.done = false;

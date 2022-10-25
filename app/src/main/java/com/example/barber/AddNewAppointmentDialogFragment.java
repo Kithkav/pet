@@ -22,32 +22,25 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Calendar;
 
-public class AddNewTaskDialogFragment extends BottomSheetDialogFragment {
-    public static final String TAG = "AddNewTaskDialogFragment";
-
+public class AddNewAppointmentDialogFragment extends BottomSheetDialogFragment {
     private TextView dteDueDate;
     private EditText txtDescription;
     private Button btnSaveTask;
-    private FirebaseFirestore db;
-    private FirebaseAuth mAuth;
-    private Context context;
+    private AppointmentViewActivity context;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.add_new_task, container, false);
+        return inflater.inflate(R.layout.add_new_appointment, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        dteDueDate = view.findViewById(R.id.set_due_tv);
-        txtDescription = view.findViewById(R.id.task_edittext);
-        btnSaveTask = view.findViewById(R.id.save_btn);
-
-        db = FirebaseFirestore.getInstance();
-        mAuth = FirebaseAuth.getInstance();
+        dteDueDate = view.findViewById(R.id.dteDueDate_appointment);
+        txtDescription = view.findViewById(R.id.txtInDescription_appointment);
+        btnSaveTask = view.findViewById(R.id.btnSave_appointment);
 
         Calendar calendar = Calendar.getInstance();
         int MONTH = calendar.get(Calendar.MONTH);
@@ -75,15 +68,10 @@ public class AddNewTaskDialogFragment extends BottomSheetDialogFragment {
             @Override
             public void onClick(View v) {
                 if (TextUtils.isEmpty(txtDescription.getText())) {
-                    Toast.makeText(context, "Empty task not Allowed !!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Empty appointment not Allowed !!", Toast.LENGTH_SHORT).show();
                 } else {
-                    Task newTask = new Task(txtDescription.getText().toString(), calendar.getTime());
-                    if (context instanceof ToDoTaskViewActivity) {
-                        ((ToDoTaskViewActivity) context).addTaskToDatabase(newTask);
-                    } else if (context instanceof AppointmentViewActivity) {
-                        ((AppointmentViewActivity) context).addTaskToDatabase(newTask);
-                    }
-
+                    Appointment appointment = new Appointment(txtDescription.getText().toString(), calendar.getTime());
+                    context.addAppointmentToDatabase(appointment);
                     dismiss();
                 }
 
@@ -94,6 +82,6 @@ public class AddNewTaskDialogFragment extends BottomSheetDialogFragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        this.context = context;
+        this.context = (AppointmentViewActivity) context;
     }
 }
