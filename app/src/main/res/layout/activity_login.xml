@@ -111,7 +111,7 @@
                 android:layout_height="wrap_content"
                 android:text="Don't Have an Account ?"
                 android:textColor="@color/black"
-                android:textSize="14sp" />
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/txtSignUp"
@@ -120,8 +120,8 @@
                 android:textStyle="bold"
                 android:layout_marginStart="10dp"
                 android:text="Sign Up"
-                android:textColor="@color/black"
-                android:textSize="17sp" />
+                android:textColor="@color/purple_700"
+                android:textSize="20sp" />
 
         </LinearLayout>
 

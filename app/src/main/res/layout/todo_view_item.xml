@@ -13,6 +13,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginBottom="24dp"
         android:text="Description"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,6 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:text="Pending"
+        android:textColor="@color/yellow"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/txtDescription_todo" />

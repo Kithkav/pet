@@ -52,13 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     switch (item.getItemId()){
-                        case R.id.nav_home:
-                            Log.i("MENU_DRAWER_TAG", "Home item is clicked");
-                            drawerLayout.closeDrawer(GravityCompat.START);
-                            Intent i1=new Intent(MainActivity.this, ProfileActivity.class);
-                            startActivity(i1);
 
-                            break;
 
                         case R.id.nav_profile:
                             Log.i("MENU_DRAWER_TAG", "Profile item is clicked");
@@ -71,9 +65,16 @@ public class MainActivity extends AppCompatActivity {
                         case R.id.nav_reminders:
                             Log.i("MENU_DRAWER_TAG", "Reminder item is clicked");
                             drawerLayout.closeDrawer(GravityCompat.START);
-
                             Intent intent1=new Intent(MainActivity.this, ToDoTaskSplashActivity.class);
                             startActivity(intent1);
+                            break;
+
+                        case R.id.nav_records:
+                            Log.i("MENU_DRAWER_TAG", "MedicalRecords item is clicked");
+                            drawerLayout.closeDrawer(GravityCompat.START);
+                            Intent i1=new Intent(MainActivity.this, MedicalRecords.class);
+                            startActivity(i1);
+
                             break;
 
                         case R.id.nav_appoitment:
