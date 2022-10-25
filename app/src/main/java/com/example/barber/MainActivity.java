@@ -12,7 +12,6 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toolbar;
 
-//import com.example.barber.AppointmentActivity;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -73,14 +72,14 @@ public class MainActivity extends AppCompatActivity {
                             Log.i("MENU_DRAWER_TAG", "Reminder item is clicked");
                             drawerLayout.closeDrawer(GravityCompat.START);
 
-                            Intent intent1=new Intent(MainActivity.this, TodoActivity.class);
+                            Intent intent1=new Intent(MainActivity.this, ToDoTaskSplashActivity.class);
                             startActivity(intent1);
                             break;
 
                         case R.id.nav_appoitment:
-                            Log.i("MENU_DRAWER_TAG", "AppointmentActivity item is clicked");
+                            Log.i("MENU_DRAWER_TAG", "AppointmentViewActivity item is clicked");
                             drawerLayout.closeDrawer(GravityCompat.START);
-                            Intent i=new Intent(MainActivity.this, AppointmentActivity.class);
+                            Intent i=new Intent(MainActivity.this, AppointmentViewActivity.class);
                             startActivity(i);
                             break;
 

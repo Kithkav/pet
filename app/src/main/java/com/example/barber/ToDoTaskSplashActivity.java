@@ -1,13 +1,13 @@
 package com.example.barber;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-public class TodoActivity extends AppCompatActivity {
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class ToDoTaskSplashActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,9 +21,9 @@ public class TodoActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(TodoActivity.this , TodoViewActivity.class));
+                startActivity(new Intent(ToDoTaskSplashActivity.this, ToDoTaskViewActivity.class));
                 finish();
             }
-        } , 4000);
+        }, 4000);
     }
 }

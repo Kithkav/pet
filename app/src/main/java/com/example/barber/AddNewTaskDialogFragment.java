@@ -16,39 +16,26 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
-public class AddNewTask extends BottomSheetDialogFragment {
-
-    public static final String TAG = "AddNewTask";
+public class AddNewTaskDialogFragment extends BottomSheetDialogFragment {
+    public static final String TAG = "AddNewTaskDialogFragment";
 
     private TextView dteDueDate;
     private EditText txtDescription;
     private Button btnSaveTask;
     private FirebaseFirestore db;
     private FirebaseAuth mAuth;
-    private TodoViewActivity context;
-
-    public static AddNewTask newInstance(){
-        return new AddNewTask();
-    }
+    private Context context;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.add_new_task , container , false);
+        return inflater.inflate(R.layout.add_new_task, container, false);
     }
 
     @Override
@@ -75,7 +62,7 @@ public class AddNewTask extends BottomSheetDialogFragment {
                 calendar.set(Calendar.MONTH, month);
                 calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
             }
-        } , YEAR , MONTH , DAY);
+        }, YEAR, MONTH, DAY);
 
         dteDueDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,16 +74,19 @@ public class AddNewTask extends BottomSheetDialogFragment {
         btnSaveTask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 if (TextUtils.isEmpty(txtDescription.getText())) {
                     Toast.makeText(context, "Empty task not Allowed !!", Toast.LENGTH_SHORT).show();
                 } else {
-                    ToDoTask newTask = new ToDoTask(txtDescription.getText().toString(), calendar.getTime());
-                    db.collection("users").document(mAuth.getCurrentUser().getEmail()).collection("toDoTasks").add(newTask);
-                    Toast.makeText(context, "Task added successfully !!", Toast.LENGTH_SHORT).show();
-                    context.refreshRecyclerView();
+                    Task newTask = new Task(txtDescription.getText().toString(), calendar.getTime());
+                    if (context instanceof ToDoTaskViewActivity) {
+                        ((ToDoTaskViewActivity) context).addTaskToDatabase(newTask);
+                    } else if (context instanceof AppointmentViewActivity) {
+                        ((AppointmentViewActivity) context).addTaskToDatabase(newTask);
+                    }
+
                     dismiss();
                 }
+
             }
         });
     }
@@ -104,6 +94,6 @@ public class AddNewTask extends BottomSheetDialogFragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        this.context = (TodoViewActivity) context;
+        this.context = context;
     }
 }

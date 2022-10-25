@@ -25,44 +25,16 @@ class User {
     }
 }
 
-class ToDoTask {
+class Task {
     private String description;
     private boolean done;
     private Date date;
 
-    public ToDoTask() {
+    public Task() {
 
     }
 
-    public ToDoTask(String description, Date date) {
-        this.date = date;
-        this.description = description;
-        this.done = false;
-    }
-
-    public Date getDate() {
-        return this.date;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public boolean isDone() {
-        return done;
-    }
-}
-
-class Appointment {
-    private String description;
-    private boolean done;
-    private Date date;
-
-    public Appointment() {
-
-    }
-
-    public Appointment(String description, Date date) {
+    public Task(String description, Date date) {
         this.date = date;
         this.description = description;
         this.done = false;
