@@ -40,7 +40,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".SignInActivity"
             android:exported="false" />
         <activity
             android:name=".SignupActivity"

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/p2"
     android:scrollbars="none"
-    tools:context=".LoginActivity">
+    tools:context=".SignInActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

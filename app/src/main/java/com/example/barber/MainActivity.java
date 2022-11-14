@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         if (mAuth.getCurrentUser() == null) {
             //User not logged in. Redirect to login activity
-            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            Intent intent = new Intent(MainActivity.this, SignInActivity.class);
             startActivity(intent);
         } else {
             //User logged in
