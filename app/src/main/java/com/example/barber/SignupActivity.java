@@ -28,7 +28,7 @@ public class SignupActivity extends AppCompatActivity {
         ProgressBar progressBar;
         Button btnSignUp;
         String txtFullName, txtEmail, txtMobile, txtPassword, txtConfirmPassword;
-        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"; //test@gmail.com
         private FirebaseAuth mAuth;
         private FirebaseFirestore db;
 
