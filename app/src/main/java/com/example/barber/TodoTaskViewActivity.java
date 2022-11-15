@@ -28,9 +28,9 @@ public class TodoTaskViewActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         recyclerView = findViewById(R.id.recyclerView_todo);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(TodoTaskViewActivity.this));
-        this.refreshRecyclerView();
+//        recyclerView.setHasFixedSize(true);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(TodoTaskViewActivity.this));
+//        this.refreshRecyclerView();
 
         mFab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,7 +42,7 @@ public class TodoTaskViewActivity extends AppCompatActivity {
 
     public void addTodoTaskToDatabase(TodoTask toDoTask) {
         db.collection("users").document(mAuth.getCurrentUser().getEmail()).collection("toDoTasks").add(toDoTask);
-        Toast.makeText(TodoTaskViewActivity.this, "Todo toDoTask added successfully", Toast.LENGTH_SHORT).show();
+        Toast.makeText(TodoTaskViewActivity.this, "Task added successfully", Toast.LENGTH_SHORT).show();
         this.refreshRecyclerView();
     }
 
