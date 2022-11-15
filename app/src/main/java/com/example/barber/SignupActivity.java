@@ -43,7 +43,6 @@ public class SignupActivity extends AppCompatActivity {
             edtMobile = findViewById(R.id.edtSignUpMobile);
             edtPassword = findViewById(R.id.edtSignUpPassword);
             edtConfirmPassword = findViewById(R.id.edtSignUpConfirmPassword);
-            progressBar = findViewById(R.id.signUpProgressBar);
             btnSignUp = findViewById(R.id.btnSignUp);
 
             // Initialize Firebase Auth
@@ -108,7 +107,6 @@ public class SignupActivity extends AppCompatActivity {
         }
 
         private void SignUpUser() {
-            progressBar.setVisibility(View.VISIBLE);
             btnSignUp.setVisibility(View.INVISIBLE);
 
             mAuth.createUserWithEmailAndPassword(txtEmail, txtPassword).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
@@ -126,7 +124,6 @@ public class SignupActivity extends AppCompatActivity {
                 @Override
                 public void onFailure(@NonNull Exception e) {
                     Toast.makeText(SignupActivity.this, "Error " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                    progressBar.setVisibility(View.INVISIBLE);
                     btnSignUp.setVisibility(View.VISIBLE);
                 }
             });

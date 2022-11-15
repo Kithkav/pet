@@ -150,13 +150,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp">
 
-            <ProgressBar
-                android:id="@+id/signUpProgressBar"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center_horizontal"
-                android:visibility="invisible" />
-
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSignUp"
                 android:layout_width="match_parent"

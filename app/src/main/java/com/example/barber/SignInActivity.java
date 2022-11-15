@@ -36,7 +36,6 @@ public class SignInActivity extends AppCompatActivity {
         txtSignUp = findViewById(R.id.txtSignUp);
         edtEmail = findViewById(R.id.edtSignInEmail);
         edtPassword = findViewById(R.id.edtSignInPassword);
-        progressBar = findViewById(R.id.signInProgressBar);
         btnSignIn = findViewById(R.id.btnSignIn);
 
         // Initialize Firebase Auth
@@ -75,7 +74,6 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     private void SignInUser() {
-        progressBar.setVisibility(View.VISIBLE);
         btnSignIn.setVisibility(View.INVISIBLE);
 
         mAuth.signInWithEmailAndPassword(txtEmail, txtPassword).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
@@ -90,7 +88,6 @@ public class SignInActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(SignInActivity.this, "Error - " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                progressBar.setVisibility(View.INVISIBLE);
                 btnSignIn.setVisibility(View.VISIBLE);
             }
         });
