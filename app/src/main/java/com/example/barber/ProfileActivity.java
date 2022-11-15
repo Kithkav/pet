@@ -77,9 +77,7 @@ public class ProfileActivity extends AppCompatActivity {
         pd.show();
 
         final String randomKey = UUID.randomUUID().toString();
-        //StorageReference mountainsRef = storageReference.child("");
 
-// Create a reference to 'images/mountains.jpg'
         StorageReference mountainImagesRef = storageReference.child("images/"+randomKey);
 
         mountainImagesRef.putFile(imageUri)

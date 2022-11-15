@@ -44,10 +44,7 @@ public class MainActivity extends AppCompatActivity {
             //User logged in
             drawerLayout =findViewById(R.id.drawer_layout);
             navigationView=findViewById(R.id.navigationView);
-            actionBarDrawerToggle =new ActionBarDrawerToggle(this,drawerLayout, R.string.menu_Open, R.string.close_menu);
             drawerLayout.addDrawerListener(actionBarDrawerToggle);
-            actionBarDrawerToggle.syncState();
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -63,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                             break;
 
                         case R.id.nav_reminders:
-                            Log.i("MENU_DRAWER_TAG", "Reminder item is clicked");
+                            Log.i("MENU_DRAWER_TAG", "ToDoList item is clicked");
                             drawerLayout.closeDrawer(GravityCompat.START);
                             Intent intent1=new Intent(MainActivity.this, ToDoTaskSplashActivity.class);
                             startActivity(intent1);
@@ -92,9 +89,7 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(loginActivity);
                             finish();
 
-//                        Intent a=new Intent(MainActivity.this, SignupActivity.class);
-//                        startActivity(a);
-//                        Toast.makeText(MainActivity.this, "Logging out !", Toast.LENGTH_SHORT).show();                        break;
+                      break;
                     }
                     return true;
                 }
