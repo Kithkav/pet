@@ -74,7 +74,6 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     private void SignInUser() {
-        btnSignIn.setVisibility(View.INVISIBLE);
 
         mAuth.signInWithEmailAndPassword(txtEmail, txtPassword).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
             @Override
@@ -88,7 +87,6 @@ public class SignInActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(SignInActivity.this, "Error - " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                btnSignIn.setVisibility(View.VISIBLE);
             }
         });
 
